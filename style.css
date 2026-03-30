@@ -1,0 +1,265 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #222222;
+    --nav-color: #666666;
+    --nav-hover: #000000;
+    --font-family: 'Jost', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 60px 4%; /* Brought closer to the edges */
+    max-width: 100%; /* Spans the full monitor width */
+    width: 100%;
+    margin: 0;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.5em; /* Achieves the wide spacing seen in screenshot */
+    text-transform: uppercase;
+}
+
+.navigation {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--nav-color);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--nav-hover);
+}
+
+/* Hero Video Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Darkens the video so white text is readable */
+    z-index: -1;
+}
+
+.hero-section .header {
+    color: #ffffff;
+}
+
+.hero-section .logo {
+    color: #ffffff; /* Override logo to be white over video */
+}
+
+.hero-section .nav-link {
+    color: #eeeeee;
+}
+
+.hero-section .nav-link:hover, .hero-section .nav-link.active {
+    color: #ffffff;
+}
+
+.hero-spacer {
+    flex-grow: 1; /* Pushes content down and ensures the hero block fills the screen */
+}
+
+.content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 8% 60px;
+}
+
+.tab-section {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.tab-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.subtitle {
+    margin-bottom: 40px;
+    color: #444;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+/* Masonry Layout */
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    align-items: start;
+}
+
+.grid-item {
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background-color: #f7f7f7;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.6s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.04);
+    filter: brightness(0.9);
+}
+
+/* Specific section styling */
+.about-container, .resume-container {
+    max-width: 800px;
+    margin: 40px 0;
+}
+
+.about-container h2, .resume-container h2 {
+    font-weight: 400;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+}
+
+.resume-block {
+    margin-bottom: 40px;
+}
+
+.resume-title {
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 5px;
+    color: var(--nav-color);
+}
+
+.resume-list {
+    list-style: none;
+}
+
+.resume-list li {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.resume-list li strong {
+    font-weight: 500;
+    color: #000;
+}
+
+.resume-list li span {
+    float: right;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.resume-list li small {
+    display: block;
+    margin-top: 5px;
+    color: #555;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 850px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        padding: 50px 5%;
+    }
+    
+    .logo {
+        letter-spacing: 0.3em;
+        font-size: 1.8rem;
+    }
+
+    .content {
+        padding: 0 5% 40px;
+    }
+}
+
+/* Dynamic Hero Video Hiding for non-portfolio pages */
+body:not(.portfolio-active) .hero-video,
+body:not(.portfolio-active) .hero-overlay,
+body:not(.portfolio-active) .hero-spacer {
+    display: none;
+}
+
+body:not(.portfolio-active) .hero-section {
+    height: auto; 
+    background-color: var(--bg-color);
+}
+
+body:not(.portfolio-active) .hero-section .header {
+    color: var(--text-color);
+}
+
+body:not(.portfolio-active) .hero-section .logo {
+    color: var(--text-color);
+}
+
+body:not(.portfolio-active) .hero-section .nav-link {
+    color: var(--nav-color);
+}
+
+body:not(.portfolio-active) .hero-section .nav-link:hover, 
+body:not(.portfolio-active) .hero-section .nav-link.active {
+    color: var(--nav-hover);
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Wang | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="portfolio-active">
+    <div class="hero-section">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="IMG_1808.mov">
+        </video>
+        <div class="hero-overlay"></div>
+        <header class="header">
+            <h1 class="logo">FELIX WANG</h1>
+            <nav class="navigation">
+                <a href="#" class="nav-link active" data-target="portfolio">PORTFOLIO</a>
+                <a href="#" class="nav-link" data-target="about">ABOUT</a>
+                <a href="#" class="nav-link" data-target="resume">RESUME</a>
+            </nav>
+        </header>
+        <div class="hero-spacer"></div>
+    </div>
+
+    <main class="content">
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="tab-section active">
+            <p class="subtitle">Click a photo to see more.</p>
+            <div class="masonry-grid">
+                <!-- Placeholder image 1 -->
+                <div class="grid-item">
+                    <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&q=80&w=800" alt="Camera Lens">
+                </div>
+                <!-- Placeholder image 2 -->
+                <div class="grid-item">
+                    <img src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?auto=format&fit=crop&q=80&w=800" alt="Tech Device">
+                </div>
+                <!-- Placeholder image 3 -->
+                <div class="grid-item">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Engineering Project">
+                </div>
+                 <!-- Placeholder image 4 -->
+                 <div class="grid-item">
+                    <img src="https://images.unsplash.com/photo-1481481322814-3d526fc49336?auto=format&fit=crop&q=80&w=800" alt="Design sketch">
+                </div>
+                <!-- Placeholder image 5 -->
+                <div class="grid-item">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800" alt="Hardware project">
+                </div>
+                <!-- Placeholder image 6 -->
+                <div class="grid-item">
+                    <img src="https://images.unsplash.com/photo-1517420704952-d9f39741e815?auto=format&fit=crop&q=80&w=800" alt="Concept art">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="tab-section">
+            <div class="about-container">
+                <h2>About Me</h2>
+                <p>Hello! I'm Felix Wang. I am a passionate creator focused on building tools and experiences that matter. I strive for functional simplicity and aesthetics.</p>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="tab-section">
+            <div class="resume-container">
+                <div style="margin-bottom: 40px; font-size: 0.95rem; line-height: 1.6; padding-bottom: 20px; border-bottom: 1px dashed #eaeaea;">
+                    For a complete record of my professional and academic history, you can 
+                    <a href="FelixWang_Resume_Mar2026(F).pdf" target="_blank" style="color: #000; font-weight: 500; text-decoration: underline;">view or download my full PDF resume here</a>.
+                </div>
+
+                <div class="resume-block">
+                    <h3 class="resume-title">Education</h3>
+                    <ul class="resume-list">
+                        <li>
+                            <strong>Duke University</strong> — B.S.E. in Electrical & Computer Engineering, B.S. Physics <span>(Exp. May 2028)</span><br>
+                            <small>Honors: Duke Motorsports, Club Swimming. Coursework: Energy & Climate Entrepreneurship, Data Structures.</small>
+                        </li>
+                        <li>
+                            <strong>Adlai E. Stevenson High School</strong> — Summa Cum Laude <span>(Aug 2020 - May 2024)</span><br>
+                            <small>GPA: 4.85/4.00 | SAT: 1560 | Honors: USAPHO Qualifier, USACO Gold, National Merit Semifinalist.</small>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="resume-block">
+                    <h3 class="resume-title">Experience</h3>
+                    <ul class="resume-list">
+                        <li>
+                            <strong>Northwestern University (CIERA)</strong> — Researcher <span>(Jun 2025 - Jul 2025)</span><br>
+                            <small>Applied AstroPy, HEALPix, and LightKurve for astrophysical data analysis. Processed 10,000+ planetary candidates.</small>
+                        </li>
+                        <li>
+                            <strong>Stellarverse</strong> — Founder & Head of Operations <span>(May 2022 - Present)</span><br>
+                            <small>Managed a non-profit hosting astronomy sessions. Raised $2500 and built digital infrastructure with Stripe integration.</small>
+                        </li>
+                        <li>
+                            <strong>Patriot Aquatics Club</strong> — Swim Instructor Lead <span>(May 2021 - Jul 2025)</span><br>
+                            <small>Trained 50+ instructors, oversaw lesson plans, and organized 120+ customized private swim lessons.</small>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="resume-block">
+                    <h3 class="resume-title">Leadership & Research</h3>
+                    <ul class="resume-list">
+                        <li>
+                            <strong>Duke Motorsports</strong> — Electrical Team <span>(Aug 2025 - Present)</span><br>
+                            <small>Designed 3 kW motor controller improving efficiency by 6%. Built photogate timing system using laser sensors.</small>
+                        </li>
+                        <li>
+                            <strong>Duke Engineers for International Development</strong> — Project Member <span>(Aug 2025 - Present)</span><br>
+                            <small>Designed $30 monitoring system via Arduino to alert nurses of infant nasal cannula dislodgement in Uganda.</small>
+                        </li>
+                        <li>
+                            <strong>Gabrielse Group, Northwestern Univ.</strong> — Researcher <span>(Jun 2024 - Jul 2024)</span><br>
+                            <small>Constructed photogates/beam shapers for UV laser systems optimizing particle detection.</small>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="resume-block">
+                    <h3 class="resume-title">Projects & Skills</h3>
+                    <ul class="resume-list">
+                        <li>
+                            <strong>Mycospec</strong> — Lead Electrical Engineer <span>(Dec 2025 - Present)</span><br>
+                            <small>Building handheld fungal detector linked with ESP32 sensors and ML models via React/Node.js app.</small>
+                        </li>
+                        <li>
+                            <strong>HiFive</strong> — Full-Stack Developer <span>(Mar 2025 - Present)</span><br>
+                            <small>Real-time messaging app with Node.js/Socket.IO and Postgres. Designed LLM pipeline for context-aware icebreakers.</small>
+                        </li>
+                        <li>
+                            <strong>Skills & Interests</strong><br>
+                            <small>Mandarin, Java, Python, Arduino, Circuit Analysis. Interests: Butterfly Swimming, Climate Tech/Space, Podcasting.</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
