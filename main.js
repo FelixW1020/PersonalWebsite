@@ -35,4 +35,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    const homeLogo = document.getElementById('home-logo');
+    if (homeLogo) {
+        homeLogo.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Reset to Portfolio defaults
+            navLinks.forEach(l => l.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
+            
+            const portfolioLink = document.querySelector('.nav-link[data-target="portfolio"]');
+            if (portfolioLink) portfolioLink.classList.add('active');
+            
+            const portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) portfolioSection.classList.add('active');
+            
+            body.className = 'portfolio-active';
+            
+            // Scroll completely to the top of the hero banner
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });
