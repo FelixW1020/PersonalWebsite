@@ -32,7 +32,7 @@
             <div class="masonry-grid">
                 <!-- Project 1 -->
                 <div class="grid-item project-card">
-                    <a href="cannula-poster.png" target="_blank" style="text-decoration: none; color: inherit;">
+                    <a href="#" class="project-link" data-target="project-cannula" style="text-decoration: none; color: inherit; display: block;">
                         <div style="overflow: hidden;">
                             <img src="cannula-poster.png" alt="Nasal Cannula Detection Device">
                         </div>
@@ -44,7 +44,7 @@
                 </div>
                 <!-- Project 2 -->
                 <div class="grid-item project-card">
-                    <a href="https://drive.google.com/file/d/1X7NHovzHp4CBSnoAYyLDpd6yrix23Gqz/preview" target="_blank" style="text-decoration: none; color: inherit;">
+                    <a href="#" class="project-link" data-target="project-exoplanet" style="text-decoration: none; color: inherit; display: block;">
                         <div style="overflow: hidden;">
                             <img src="astronomy-bg.jpg" alt="Exoplanet Detection & Habitable Zone Analysis">
                         </div>
@@ -156,6 +156,71 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+        </section>
+
+        <!-- Project Detail: Nasal Cannula -->
+        <section id="project-cannula" class="tab-section">
+            <div class="about-container" style="max-width: 900px;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 5px;">Nasal Cannula Detection Device</h2>
+                <span style="color: var(--nav-color); font-size: 0.95rem; display: block; margin-bottom: 30px;">Healthcare & Embedded Systems</span>
+                
+                <img src="cannula-poster.png" alt="Nasal Cannula Project" style="width: 100%; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                
+                <h3 style="margin-top: 30px; font-weight: 500;">The Problem</h3>
+                <p>Infant mortality rates in low-resource settings, such as Mulago National Referral Hospital in Uganda, are significantly impacted by nasal cannula dislodgement. With nurse-to-baby ratios up to 1:35, continuous monitoring is exceptionally difficult.</p>
+                
+                <h3 style="margin-top: 30px; font-weight: 500;">The Solution</h3>
+                <p>We designed a low-cost (<$5) Arduino-based monitoring and alert system that detects dislodgement natively and rapidly alerts healthcare providers to prevent hypoxia.</p>
+                
+                <h3 style="margin-top: 30px; font-weight: 500;">Key Components</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: var(--nav-color); margin-bottom: 15px;">
+                    <li style="margin-bottom: 10px;"><strong>Sensor:</strong> Embedded thermistor monitors skin temperature every 500ms.</li>
+                    <li style="margin-bottom: 10px;"><strong>Alarm Box:</strong> 3D printed housing containing circuitry, battery, and alarming mechanisms.</li>
+                    <li style="margin-bottom: 10px;"><strong>Circuitry:</strong> Activates an alarm if readings stay below a calibration threshold for 10 counts. Features 3 integrated LEDs: Green (Power), Yellow (Calibration), and Red (Dislodgement).</li>
+                </ul>
+
+                <h3 style="margin-top: 30px; font-weight: 500;">Testing & Results</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: var(--nav-color);">
+                    <li style="margin-bottom: 10px;"><strong>Integration:</strong> Seamless setup taking <5 mins. (Average attachment: 21.86s).</li>
+                    <li style="margin-bottom: 10px;"><strong>Response Time:</strong> Alerts triggered within 1-3 minutes. (Average response: 17.29s).</li>
+                    <li style="margin-bottom: 10px;"><strong>Accuracy:</strong> 100% true positives across 60 clinical trials.</li>
+                    <li style="margin-bottom: 10px;"><strong>Reusability:</strong> Disassembled 50+ times with zero structural wear.</li>
+                </ul>
+                
+                <a href="#" class="project-link" data-target="portfolio" style="display: inline-block; margin-top: 40px; text-decoration: none; color: #000; font-weight: 500; border: 1px solid #000; padding: 10px 20px; border-radius: 4px;">&larr; Back to Projects</a>
+            </div>
+        </section>
+
+        <!-- Project Detail: Exoplanet -->
+        <section id="project-exoplanet" class="tab-section">
+            <div class="about-container" style="max-width: 900px;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 5px;">Exoplanet Detection & Habitable Zone Analysis</h2>
+                <span style="color: var(--nav-color); font-size: 0.95rem; display: block; margin-bottom: 30px;">Astrophysics & Data Science Research</span>
+                
+                <img src="astronomy-bg.jpg" alt="Exoplanet Research" style="width: 100%; height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                
+                <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 30px; color: #333;">
+                    This research strictly explores exoplanet detection using transit photometry from the TESS telescope, streamlining the process of importing MAST catalog time series data over to light curves to evaluate long-term habitability conditions.
+                </p>
+
+                <h3 style="margin-top: 30px; font-weight: 500;">Methodology</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: var(--nav-color); margin-bottom: 15px;">
+                    <li style="margin-bottom: 10px;"><strong>Transit Photometry:</strong> Detecting astronomical brightness dips during planetary transits.</li>
+                    <li style="margin-bottom: 10px;"><strong>Light Curve Analysis:</strong> Leveraged the <code>Lightkurve</code> Python library to reliably process and normalize TESS pixel files.</li>
+                    <li style="margin-bottom: 10px;"><strong>Periodogram Analysis:</strong> Applied the Box Least Squares (BLS) algorithmic method for identifying exact orbital periods.</li>
+                    <li style="margin-bottom: 10px;"><strong>Habitable Zone Calculation:</strong> Computed via stellar mass-luminosity relationships utilizing <code>Astropy</code>.</li>
+                    <li style="margin-bottom: 10px;"><strong>False Positive Detection:</strong> Filtered dynamically utilizing Centroid tracking, background flux analysis, and eclipsing binary mapping.</li>
+                </ul>
+
+                <h3 style="margin-top: 30px; font-weight: 500;">Key Findings</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: var(--nav-color);">
+                    <li style="margin-bottom: 10px;">Deeply analyzed exactly 2,537 documented exoplanets and concluded that <strong>only 118 (4.7%)</strong> lie within viable habitable zones.</li>
+                    <li style="margin-bottom: 10px;">Observed an overarching physical trend of discovered exoplanets orbiting extremely close to their host stars.</li>
+                    <li style="margin-bottom: 10px;">Successfully identified the entity <code>TIC 34798133</code> as a highly promising candidate for further deep-space telescope review.</li>
+                </ul>
+
+                <a href="#" class="project-link" data-target="portfolio" style="display: inline-block; margin-top: 40px; text-decoration: none; color: #000; font-weight: 500; border: 1px solid #000; padding: 10px 20px; border-radius: 4px;">&larr; Back to Projects</a>
             </div>
         </section>
     </main>
