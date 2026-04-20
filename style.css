@@ -136,8 +136,8 @@ body {
 /* Masonry Layout */
 .masonry-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 40px;
     align-items: start;
 }
 
