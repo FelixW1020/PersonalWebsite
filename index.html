@@ -54,9 +54,17 @@
                         </div>
                     </a>
                 </div>
-                <!-- Placeholder image 3 -->
-                <div class="grid-item">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Engineering Project">
+                <!-- Project 3 -->
+                <div class="grid-item project-card">
+                    <a href="#" class="project-link" data-target="project-mycospec" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="overflow: hidden;">
+                            <img src="mycospec-poster.png" alt="FOAK Fungal-Detection Device">
+                        </div>
+                        <div class="project-info">
+                            <h3>FOAK Fungal-Detection Device</h3>
+                            <p>An HVAC-mounted mold detection device predicting invasive Aspergillus spores. Monitors VOCs, temps, and humidity to provide real-time mold risk assessments for immunocompromised patients.</p>
+                        </div>
+                    </a>
                 </div>
                  <!-- Placeholder image 4 -->
                  <div class="grid-item">
@@ -218,6 +226,39 @@
                     <li style="margin-bottom: 10px;">Deeply analyzed exactly 2,537 documented exoplanets and concluded that <strong>only 118 (4.7%)</strong> lie within viable habitable zones.</li>
                     <li style="margin-bottom: 10px;">Observed an overarching physical trend of discovered exoplanets orbiting extremely close to their host stars.</li>
                     <li style="margin-bottom: 10px;">Successfully identified the entity <code>TIC 34798133</code> as a highly promising candidate for further deep-space telescope review.</li>
+                </ul>
+
+                <a href="#" class="project-link" data-target="portfolio" style="display: inline-block; margin-top: 40px; text-decoration: none; color: #000; font-weight: 500; border: 1px solid #000; padding: 10px 20px; border-radius: 4px;">&larr; Back to Projects</a>
+            </div>
+        </section>
+        <!-- Project Detail: MycoSpec -->
+        <section id="project-mycospec" class="tab-section">
+            <div class="about-container" style="max-width: 900px;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 5px;">FOAK Fungal-Detection Device (MycoSpec)</h2>
+                <span style="color: var(--nav-color); font-size: 0.95rem; display: block; margin-bottom: 30px;">Medical Hardware & Embedded Diagnostics</span>
+                
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <img src="mycospec-poster.png" alt="Mycospec Device Render" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                </div>
+                
+                <h3 style="margin-top: 30px; font-weight: 500;">The Invisible Threat</h3>
+                <p>HVAC systems create warm, humid, low-light environments—ideal conditions for fungal proliferation. For immunocompromised patients (e.g., post-transplant or chemotherapy patients), inhaled Aspergillus spores can cause invasive aspergillosis, a life-threatening pulmonary infection with mortality rates exceeding 50%.</p>
+                
+                <h3 style="margin-top: 30px; font-weight: 500;">The Device (How It Works)</h3>
+                <p>MycoSpec is a compact, clip-on sensor module engineered to mount directly on standard HVAC vent fins—requiring no tools or disruption to operations. It constantly polls volatile organic compounds (VOCs), ambient temperature, and humidity to provide real-time mold risk assessments before visible growth ever appears.</p>
+                
+                <h3 style="margin-top: 30px; font-weight: 500;">Testing & Results</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: var(--nav-color); margin-bottom: 15px;">
+                    <li style="margin-bottom: 10px;">Controlled experiments conducted in lab facilities simultaneously logged sensor readings for over ~350 seconds alongside active <em>Aspergillus fumigatus</em> cultures.</li>
+                    <li style="margin-bottom: 10px;">Identified distinct bands of VOC detection between the negative control (no mold) and the positive clinical control.</li>
+                    <li style="margin-bottom: 10px;">These thresholds formed an algorithmic classification boundary for <strong>LOW / MEDIUM / HIGH</strong> risk indicators output to a live dashboard.</li>
+                </ul>
+
+                <h3 style="margin-top: 30px; font-weight: 500;">Technical Challenges Overcome</h3>
+                <p>Building a reliable mold detection system required overcoming fundamental real-world hurdles:</p>
+                <ul style="margin-left: 20px; line-height: 1.6; color: var(--nav-color);">
+                    <li style="margin-bottom: 10px;"><strong>Sensor Specificity:</strong> Filtering out real-world noise (cleaning agents, occupant activity, off-gassing materials) from ambient VOC logs to prevent false alarms.</li>
+                    <li style="margin-bottom: 10px;"><strong>Mold Species Differentiation:</strong> Translating characteristic mixes of sesquiterpenes and alcohols from specific species like Aspergillus vs. Stachybotrys.</li>
                 </ul>
 
                 <a href="#" class="project-link" data-target="portfolio" style="display: inline-block; margin-top: 40px; text-decoration: none; color: #000; font-weight: 500; border: 1px solid #000; padding: 10px 20px; border-radius: 4px;">&larr; Back to Projects</a>
