@@ -291,3 +291,60 @@ body:not(.portfolio-active) .hero-section .nav-link:hover,
 body:not(.portfolio-active) .hero-section .nav-link.active {
     color: var(--nav-hover);
 }
+
+/* Footer Styling */
+.site-footer {
+    width: 100%;
+    padding: 60px 20px 40px;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    z-index: 10;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 30px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.footer-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    opacity: 0.7;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.85rem;
+}
+
+.contact-info a {
+    color: var(--nav-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.contact-info a:hover {
+    color: var(--nav-hover);
+}
+
+.divider {
+    color: #ccc;
+}
+
+/* Hide footer on individual project pages */
+body[class*="project-"] .site-footer {
+    display: none;
+}
