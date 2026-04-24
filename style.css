@@ -18,6 +18,13 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+img, video, iframe {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: high-quality;
 }
 
 .header {
