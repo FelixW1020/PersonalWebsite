@@ -198,7 +198,12 @@ img, video, iframe {
 }
 
 /* Specific section styling */
-.about-container, .resume-container {
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.resume-container {
     max-width: 800px;
     margin: 40px 0;
 }
