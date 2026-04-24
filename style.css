@@ -136,7 +136,7 @@ body {
 /* Masonry Layout */
 .masonry-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 450px), 1fr));
     gap: 40px;
     align-items: start;
 }
@@ -260,6 +260,27 @@ body {
 
     .content {
         padding: 0 5% 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navigation {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-link {
+        font-size: 0.75rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+        letter-spacing: 0.15em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
