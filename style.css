@@ -6,6 +6,15 @@
     --font-family: 'Jost', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: rgba(0, 0, 0, 0.12);
+    color: #000;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -380,4 +389,14 @@ body:not(.portfolio-active) .hero-section .nav-link.active {
 /* Hide footer on individual project pages */
 body[class*="project-"] .site-footer {
     display: none;
+}
+
+/* Button UI Interactions */
+.project-link {
+    transition: all 0.3s ease !important;
+}
+
+.project-link:hover {
+    background-color: #000 !important;
+    color: #fff !important;
 }
