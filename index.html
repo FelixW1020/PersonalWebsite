@@ -213,6 +213,14 @@
                     style="color: var(--nav-color); font-size: 0.95rem; display: block; margin-bottom: 30px;">Healthcare
                     & Embedded Systems</span>
 
+                <div
+                    style="margin-bottom: 30px; font-size: 0.95rem; line-height: 1.6; padding-bottom: 20px; border-bottom: 1px dashed #eaeaea; font-weight: 500;">
+                    <strong>View the open-source firmware and technical overview on the
+                    <a href="https://github.com/FelixW1020/Arduino-Code-for-Nasal-Cannula" target="_blank"
+                        style="color: var(--text-color); font-weight: 500; text-decoration: underline;">official
+                        GitHub repository here</a>.</strong>
+                </div>
+
                 <img loading="lazy" src="cannula-poster.png" alt="Nasal Cannula Project"
                     style="width: 100%; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
 
@@ -250,6 +258,15 @@
                             <li style="margin-bottom: 10px;">Circuitry: Activates an alarm if readings
                                 stay below a calibration threshold for 10 counts. Features 3 integrated LEDs: Green
                                 (Power), Yellow (Calibration), and Red (Dislodgement).</li>
+                        </ul>
+
+                        <h3 style="margin-top: 30px; font-weight: 500;">Detection Logic & Firmware</h3>
+                        <p style="margin-bottom: 15px;">The system is powered by custom Arduino firmware designed for reliability and rapid response:</p>
+                        <ul style="margin-left: 20px; line-height: 1.6; color: var(--nav-color); margin-bottom: 15px;">
+                            <li style="margin-bottom: 10px;"><strong>Calibration:</strong> A baseline thermistor value is established during a 5-second calibration period.</li>
+                            <li style="margin-bottom: 10px;"><strong>Continuous Monitoring:</strong> Live readings are compared against 99.5% of the calibrated baseline every 500ms.</li>
+                            <li style="margin-bottom: 10px;"><strong>Dislodgement Confirmation:</strong> A dislodgement event is confirmed only after 10 consecutive readings below the threshold to prevent false alarms.</li>
+                            <li style="margin-bottom: 10px;"><strong>User Interface:</strong> A 16x2 I2C LCD provides real-time system feedback, displaying the current raw reading and normal/alarm states, while debounced push buttons handle manual resets.</li>
                         </ul>
 
                         <h3 style="margin-top: 50px; font-weight: 500; margin-bottom: 20px;">Device Demonstration</h3>
