@@ -26,6 +26,8 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    font-size: 1.05rem; /* Base size bump */
+    font-weight: 400; /* Ensure baseline thickness */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -61,8 +63,8 @@ img, video, iframe {
 .nav-link {
     text-decoration: none;
     color: var(--nav-color);
-    font-size: 0.85rem;
-    font-weight: 400;
+    font-size: 0.95rem; /* Increased from 0.85rem */
+    font-weight: 500; /* Increased from 400 */
     letter-spacing: 0.1em;
     text-transform: uppercase;
     transition: color 0.3s ease;
@@ -145,8 +147,8 @@ img, video, iframe {
 .subtitle {
     margin-bottom: 40px;
     color: #444;
-    font-size: 0.95rem;
-    font-weight: 400;
+    font-size: 1.1rem; /* Increased from 0.95rem */
+    font-weight: 500; /* Increased from 400 */
 }
 
 /* Masonry Layout */
@@ -193,7 +195,7 @@ img, video, iframe {
 }
 
 .project-info h3 {
-    font-size: 1.1rem;
+    font-size: 1.25rem; /* Increased from 1.1rem */
     font-weight: 500;
     margin-bottom: 8px;
     color: var(--nav-hover);
@@ -201,7 +203,7 @@ img, video, iframe {
 }
 
 .project-info p {
-    font-size: 0.9rem;
+    font-size: 1rem; /* Increased from 0.9rem */
     color: var(--nav-color);
     line-height: 1.6;
 }
@@ -244,7 +246,7 @@ img, video, iframe {
 
 .resume-list li {
     margin-bottom: 20px;
-    font-size: 0.95rem;
+    font-size: 1.05rem; /* Increased from 0.95rem */
 }
 
 .resume-list li strong {
@@ -262,7 +264,7 @@ img, video, iframe {
     display: block;
     margin-top: 5px;
     color: #555;
-    font-size: 0.85rem;
+    font-size: 0.95rem; /* Increased from 0.85rem */
     line-height: 1.5;
 }
 
