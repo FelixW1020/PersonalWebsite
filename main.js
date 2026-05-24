@@ -87,4 +87,15 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // Force hero video to play (addresses iOS strict autoplay policies)
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+        heroVideo.play().catch(() => {});
+        document.body.addEventListener('touchstart', () => {
+            if (heroVideo.paused) {
+                heroVideo.play().catch(() => {});
+            }
+        }, { once: true });
+    }
 });
