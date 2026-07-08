@@ -37,6 +37,19 @@
         <section id="portfolio" class="tab-section active">
             <p class="subtitle">Selected Projects and Coursework.</p>
             <div class="masonry-grid">
+                <!-- Project 0 (Warehouse Robotics) -->
+                <div class="grid-item project-card">
+                    <a href="#" class="project-link" data-target="project-robots"
+                        style="text-decoration: none; color: inherit; display: block;">
+                        <div style="overflow: hidden; aspect-ratio: 16/10;">
+                            <img loading="lazy" src="warehouse-robots.jpg" alt="Warehouse Robotics" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;">
+                        </div>
+                        <div class="project-info">
+                            <h3>Avatar Robotics <span style="font-size: 0.85rem; font-weight: 400; color: #666; white-space: nowrap;">(June 2026 - Present)</span></h3>
+                            <p>building robots for warehouses :)</p>
+                        </div>
+                    </a>
+                </div>
                 <!-- Project 1 (FOAK Fungal-Detection Device) -->
                 <div class="grid-item project-card">
                     <a href="#" class="project-link" data-target="project-mycospec"
@@ -136,6 +149,10 @@
                     <h3 class="resume-title">Experience</h3>
                     <ul class="resume-list">
                         <li>
+                            <strong>Avatar Robotics</strong> — Robotics Engineer <span>(Jun 2026 - Present)</span><br>
+                            <small>building robots for warehouses :)</small>
+                        </li>
+                        <li>
                             <strong>Northwestern University (CIERA)</strong> — Researcher <span>(Jun 2025 - Jul
                                 2025)</span><br>
                             <small>Applied AstroPy, HEALPix, and LightKurve for astrophysical data analysis. Processed
@@ -199,6 +216,46 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+        </section>
+
+        <!-- Project Detail: Warehouse Robotics -->
+        <section id="project-robots" class="tab-section">
+            <div class="about-container" style="max-width: 900px;">
+                <a href="#" class="project-link" data-target="portfolio"
+                    style="display: inline-block; margin-bottom: 30px; text-decoration: none; color: #000; font-weight: 500; border: 1px solid #000; padding: 8px 16px; border-radius: 4px; font-size: 0.9rem;">&larr;
+                    Back to Projects</a>
+                <h2 style="font-size: 1.8rem; margin-bottom: 5px;">Warehouse Robotics at Avatar Robotics</h2>
+                <span
+                    style="color: var(--nav-color); font-size: 0.95rem; display: block; margin-bottom: 30px;">Robotics &amp; Computer Vision</span>
+
+                <img loading="lazy" src="warehouse-robots.jpg" alt="Warehouse Robotics Project"
+                    style="width: 100%; height: 400px; object-fit: cover; object-position: center 30%; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+                <h3 style="margin-top: 30px; font-weight: 500;">Overview</h3>
+                <p style="margin-bottom: 20px;">building robots for warehouses :)</p>
+
+                <h3 style="margin-top: 30px; font-weight: 500;">The Challenge</h3>
+                <p style="margin-bottom: 20px;">Modern fulfillment centers require rapid, automated sorting of diverse, high-volume products. Manual sorting is labor-intensive and prone to fatigue. Designing robotic systems to pick, sort, and place dynamic and flexible items (like soft packets and mixed boxes) requires highly coordinated hardware design, robust computer vision pipelines, and precise movement path planning.</p>
+
+                <h3 style="margin-top: 30px; font-weight: 500;">System Design &amp; Implementation</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: var(--nav-color); margin-bottom: 15px;">
+                    <li style="margin-bottom: 10px;"><strong>Robotic Manipulator:</strong> Integrated multi-axis white industrial robotic arms with customized end-effectors tailored for high-speed pick-and-place cycles.</li>
+                    <li style="margin-bottom: 10px;"><strong>Pneumatic Control:</strong> Designed routing for blue pneumatic hoses and cabling to manage vacuum-based and mechanical sorting actuators reliably.</li>
+                    <li style="margin-bottom: 10px;"><strong>Computer Vision Pipeline:</strong> Implemented real-time object classification and segmentation algorithms to detect and locate packets (such as blue, yellow, and pink packets in sorting trays) under varied lighting conditions.</li>
+                    <li style="margin-bottom: 10px;"><strong>Autonomous Sorting &amp; Tray Mapping:</strong> Developed control logic to route sorted packets to designated cardboard boxes automatically based on product type.</li>
+                </ul>
+
+                <h3 style="margin-top: 30px; font-weight: 500;">Refinement &amp; Results</h3>
+                <ul style="margin-left: 20px; line-height: 1.6; color: var(--nav-color);">
+                    <li style="margin-bottom: 10px;">High-speed sorting throughput with reliable grasping and minimal drop rates.</li>
+                    <li style="margin-bottom: 10px;">Robust multi-class object detection handling overlapping and crumpled packaging.</li>
+                    <li style="margin-bottom: 10px;">Adaptive trajectory planning minimizing mechanical wear and collision risks.</li>
+                </ul>
+
+                <a href="#" class="project-link" data-target="portfolio"
+                    style="display: inline-block; margin-top: 40px; text-decoration: none; color: #000; font-weight: 500; border: 1px solid #000; padding: 10px 20px; border-radius: 4px;">&larr;
+                    Back to Projects</a>
             </div>
         </section>
 
