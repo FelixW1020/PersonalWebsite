@@ -1,0 +1,5 @@
+# Full-resolution background source (5456x3632, ~15MB). Only the optimized
+# derivative nightsky-bg.jpg is needed to serve the site. Committing this to a
+# public repo would keep 15MB in history permanently — remove this line if you
+# want the original versioned.
+nighysky.png

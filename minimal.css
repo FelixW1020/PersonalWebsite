@@ -1,0 +1,252 @@
+:root {
+    --text: #f4f4f5;
+    --muted: #9ca0a8;
+    --label: #7b8089;
+    --ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    background-color: #04060f; /* Matches the photo's darkest tone, shows before the image loads */
+    color: var(--text);
+    font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+    /* Serif needs a touch more size and leading than the sans it replaced,
+       and holds up better on the photo at these weights */
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    /* Native cursor becomes a small dot; the trailing ring is drawn separately */
+    cursor: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='2' fill='%23f4f4f5'/%3E%3C/svg%3E") 10 10, auto;
+}
+
+::selection {
+    background: rgba(244, 244, 245, 0.18);
+    color: #fff;
+}
+
+/* ---------- Background ---------- */
+
+/* Oversized so the drift and parallax never expose an edge */
+.sky-parallax,
+.sky-scrim {
+    position: fixed;
+    top: -4%;
+    left: -4%;
+    width: 108%;
+    height: 108%;
+    z-index: -2;
+    will-change: transform;
+}
+
+.sky {
+    width: 100%;
+    height: 100%;
+    background-image: url("nightsky-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.12);
+    /* Slow rotation reads as the real sky turning about the celestial pole.
+       Kept linear so the motion never stalls at the ends of the cycle. */
+    animation: drift 45s linear infinite alternate;
+    will-change: transform;
+}
+
+@keyframes drift {
+    from { transform: scale(1.12) translate3d(0, 0, 0) rotate(0deg); }
+    to   { transform: scale(1.22) translate3d(-2.5%, 1.6%, 0) rotate(1.4deg); }
+}
+
+.sky-scrim {
+    z-index: -1;
+    /* Only enough to guarantee legibility over the brighter star clusters */
+    background:
+        radial-gradient(ellipse at 30% 30%, rgba(4, 6, 15, 0.55) 0%, rgba(4, 6, 15, 0.22) 55%, rgba(4, 6, 15, 0.42) 100%);
+    pointer-events: none;
+}
+
+.twinkle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ---------- Cursor ---------- */
+
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid var(--text);
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    opacity: 0; /* Revealed by JS on first pointer move */
+    transition: width .4s var(--ease),
+                height .4s var(--ease),
+                background .4s var(--ease),
+                border-color .4s var(--ease),
+                opacity .3s ease;
+}
+
+.cursor-ring.is-visible {
+    opacity: 1;
+}
+
+/* Swells over interactive targets. Dormant today — the page has no links yet. */
+.cursor-ring.is-hot {
+    width: 34px;
+    height: 34px;
+    background: var(--text);
+    border-color: transparent;
+}
+
+/* ---------- Content ---------- */
+
+.page {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto;
+    /* Tuned so the whole page — through the contact line — fits a 1440x900
+       laptop without scrolling. Loosen only if content is removed. */
+    padding: 9vh 32px 7vh;
+}
+
+h1 {
+    font-size: 1.85rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.2;
+}
+
+.tagline {
+    color: var(--muted);
+    margin-top: 6px;
+    font-style: italic;
+}
+
+.block {
+    margin-top: 38px;
+}
+
+.label {
+    color: var(--label);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 14px;
+}
+
+.entries {
+    list-style: none;
+}
+
+.entries li {
+    margin-bottom: 8px;
+}
+
+/* Project list carries a description line, so entries need room to breathe */
+.entries--detailed li {
+    margin-bottom: 14px;
+}
+
+.blurb {
+    display: block;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    max-width: 46ch;
+}
+
+.contact a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(156, 160, 168, 0.35);
+    padding-bottom: 1px;
+    transition: color .3s ease, border-color .3s ease;
+}
+
+.contact a:hover,
+.contact a:focus-visible {
+    color: var(--text);
+    border-bottom-color: var(--text);
+}
+
+/* Org/institution reads first; the role sits back a step */
+.role {
+    color: var(--muted);
+}
+
+.role::before {
+    content: " — ";
+    color: var(--label);
+}
+
+@media (max-width: 640px) {
+    .page {
+        padding: 12vh 24px 10vh;
+        margin: 0;
+    }
+
+    .block {
+        margin-top: 44px;
+    }
+
+    /* Stack the role under the org so long degree lines stay readable */
+    .role {
+        display: block;
+    }
+
+    .role::before {
+        content: none;
+    }
+}
+
+/* ---------- Accessibility / input-mode fallbacks ---------- */
+
+/* No custom cursor on touch devices — there is no pointer to track */
+@media (pointer: coarse) {
+    body {
+        cursor: auto;
+    }
+
+    .cursor-ring {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        cursor: auto;
+    }
+
+    .sky {
+        animation: none;
+    }
+
+    .cursor-ring,
+    .twinkle {
+        display: none;
+    }
+}
