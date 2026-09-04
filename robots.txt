@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /classic.html
 Disallow: /FelixWang_Resume_Mar2026(F).pdf
 
 Sitemap: https://felixwang.cv/sitemap.xml

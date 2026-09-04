@@ -180,12 +180,18 @@ Disable entirely (hide the ring, restore `cursor: auto`) on touch/coarse pointer
 | `minimal.css`, `minimal.js` | new page's styles and behavior |
 | `style.css`, `main.js` | old page's assets, untouched |
 
+**Currently live: the classic full portfolio** (reverted 2026-09-04).
+
 Swapping which version is live:
 
 ```sh
 cp classic.html index.html   # revert to the full detailed site
 cp minimal.html index.html   # return to the minimal site
 ```
+
+After copying `classic.html` over `index.html`, delete the archive comment and the
+`<meta name="robots" content="noindex, nofollow">` line from `index.html` — that tag belongs
+to the archived copy and would deindex the live site.
 
 Or just ask Claude to "switch to the old version."
 
