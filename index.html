@@ -50,6 +50,19 @@
                         </div>
                     </a>
                 </div>
+                <!-- Project (Bioimpedance Scanning) -->
+                <div class="grid-item project-card">
+                    <a href="#" class="project-link" data-target="project-bioimpedance"
+                        style="text-decoration: none; color: inherit; display: block;">
+                        <div style="overflow: hidden; aspect-ratio: 16/10;">
+                            <img loading="lazy" src="bz-trace-poster.jpg" alt="Robot arm tracing a path on a box lid" style="width: 100%; height: 100%; object-fit: cover; object-position: center 40%;">
+                        </div>
+                        <div class="project-info">
+                            <h3>Robotic Surface Bioimpedance Scanning <span style="font-size: 0.85rem; font-weight: 400; color: #666; white-space: nowrap;">(September 2026 - Present)</span></h3>
+                            <p>UR3e arm that scans surfaces by touch along ergodic coverage paths under force control.</p>
+                        </div>
+                    </a>
+                </div>
                 <!-- Project 1 (FOAK Fungal-Detection Device) -->
                 <div class="grid-item project-card">
                     <a href="#" class="project-link" data-target="project-mycospec"
@@ -213,6 +226,88 @@
                 </div>
 
                 <p class="ar-note">Customer, robot, and run identifiers, plus performance figures, are redacted.</p>
+
+                <a href="#" class="project-link" data-target="portfolio"
+                    style="display: inline-block; margin-top: 40px; text-decoration: none; color: #000; font-weight: 500; border: 1px solid #000; padding: 10px 20px; border-radius: 4px;">&larr;
+                    Back to Projects</a>
+            </div>
+        </section>
+
+        <!-- Project Detail: Bioimpedance Scanning -->
+        <section id="project-bioimpedance" class="tab-section">
+            <div class="about-container" style="max-width: 900px;">
+                <a href="#" class="project-link" data-target="portfolio"
+                    style="display: inline-block; margin-bottom: 30px; text-decoration: none; color: #000; font-weight: 500; border: 1px solid #000; padding: 8px 16px; border-radius: 4px; font-size: 0.9rem;">&larr;
+                    Back to Projects</a>
+                <h2 style="font-size: 1.8rem; margin-bottom: 5px;">Robotic Surface Bioimpedance Scanning with Ergodic Control</h2>
+                <span
+                    style="color: var(--nav-color); font-size: 0.95rem; display: block; margin-bottom: 25px;">Robotics Research &middot; Duke University &middot; Sep 2026 &ndash; Present</span>
+
+                <p class="ar-summary">Teaching a UR3e arm to scan a surface by touch. A wrist depth camera maps the surface, then a probe follows ergodic coverage paths while holding a steady contact force, laying the groundwork for bioimpedance scanning.</p>
+
+                <div class="ar-tags">
+                    <span>Python</span>
+                    <span>UR3e / ur_rtde</span>
+                    <span>Force control</span>
+                    <span>Hand-eye calibration</span>
+                    <span>Point clouds (Open3D)</span>
+                    <span>OpenCV / ChArUco</span>
+                    <span>Trajectory validation</span>
+                    <span>Hardware testing</span>
+                </div>
+
+                <h3 class="ar-section-title">Path Tracing in Contact</h3>
+                <div class="ar-grid">
+                    <div class="ar-card ar-wide">
+                        <div class="bz-feature">
+                            <video autoplay muted loop playsinline preload="metadata" poster="bz-trace-poster.jpg">
+                                <source src="bz-trace.mp4" type="video/mp4">
+                            </video>
+                            <img loading="lazy" src="bz-preview.jpg" alt="Dry-run preview of a coverage path drawn over the scanned surface">
+                        </div>
+                        <h4>Ergodic coverage paths</h4>
+                        <p>Follows ergodic coverage paths, supplied as waypoint CSVs, across a scanned surface under force control. Each waypoint is snapped to a fresh scan for height and probe tilt, and the full path is previewed before the arm moves. Left: a full run at 10&times; speed. Right: the dry-run preview.</p>
+                        <span class="ar-skill">Path execution &middot; Hybrid force/position control &middot; Visualization</span>
+                    </div>
+                    <div class="ar-card">
+                        <video class="ar-clip" autoplay muted loop playsinline preload="metadata" poster="bz-touch-poster.jpg">
+                            <source src="bz-touch.mp4" type="video/mp4">
+                        </video>
+                        <h4>Force-controlled contact trace</h4>
+                        <p>Seeks the surface at one point, then slides to a second while holding 2 N. Position control runs along the path and admittance control along the probe, at one command every 50 ms.</p>
+                        <span class="ar-skill">Control systems &middot; ur_rtde</span>
+                    </div>
+                    <div class="ar-card">
+                        <img loading="lazy" src="bz-force.png" alt="Contact force over time and distance, holding near 2 N" class="ar-contain" style="background: #fcfcfb;">
+                        <h4>Measured on the rig</h4>
+                        <p>Landed within 0.5 mm of the picked point and held 1.92 &plusmn; 0.11 N (target 2 N) across 261 mm at 10 mm/s.</p>
+                        <span class="ar-skill">Data logging &middot; Signal analysis</span>
+                    </div>
+                    <div class="ar-card">
+                        <img loading="lazy" src="bz-pick.jpg" alt="Two points picked on the wrist camera's point cloud" style="object-position: center 65%;">
+                        <h4>Point picking on the scan</h4>
+                        <p>Shift-click two points on the wrist camera's point cloud to set the path. Fixed a picking view that showed the scene rotated 180&deg;, which made it easy to pick the wrong corner.</p>
+                        <span class="ar-skill">Open3D &middot; Tooling</span>
+                    </div>
+                    <div class="ar-card">
+                        <img loading="lazy" src="bz-terminal.jpg" alt="Dry-run safety checks in the terminal">
+                        <h4>Fail-safe checks</h4>
+                        <p>Every failure found on the rig now stops the run instead of passing silently: a dead force stream, a flipped sign, unreachable poses, camera collisions, bad waypoints. Time to reach contact dropped from ~21 s to ~3 s.</p>
+                        <span class="ar-skill">Safety &middot; Robustness</span>
+                    </div>
+                </div>
+
+                <h3 class="ar-section-title">Camera Calibration</h3>
+                <div class="ar-grid">
+                    <div class="ar-card ar-wide">
+                        <img loading="lazy" src="bz-charuco.png" alt="ChArUco calibration board" class="ar-contain" style="background: #fff;">
+                        <h4>Locating the camera on the wrist</h4>
+                        <p>Every scan depends on knowing exactly where the camera sits relative to the arm. I measured it two independent ways: ChArUco hand-eye calibration over 20 poses, and touching points with the probe, which gives positions from the joint encoders alone. On poses the fits never saw, error fell from 24.9 mm with the old value to 5&ndash;6 mm. I also caught an OpenCV version mismatch that matched 5 of 20 board corners to the wrong squares while reporting a perfect detection.</p>
+                        <span class="ar-skill">OpenCV &middot; Rigid registration &middot; Held-out validation</span>
+                    </div>
+                </div>
+
+                <p class="ar-note">Builds on an existing lab codebase for UR3e force control.</p>
 
                 <a href="#" class="project-link" data-target="portfolio"
                     style="display: inline-block; margin-top: 40px; text-decoration: none; color: #000; font-weight: 500; border: 1px solid #000; padding: 10px 20px; border-radius: 4px;">&larr;

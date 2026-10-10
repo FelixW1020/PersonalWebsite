@@ -536,3 +536,36 @@ body[class*="project-"] .site-footer {
     align-items: start;
 }
 
+
+/* Bioimpedance project: video + preview side by side */
+.bz-feature {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 6px;
+}
+
+.ar-card .bz-feature video,
+.ar-card .bz-feature img {
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 700px) {
+    .bz-feature {
+        grid-template-columns: 1fr;
+    }
+
+    .ar-card .bz-feature video,
+    .ar-card .bz-feature img {
+        height: auto;
+    }
+
+    .ar-card .bz-feature video {
+        aspect-ratio: 4 / 5;
+    }
+
+    .ar-card .bz-feature img {
+        aspect-ratio: 4 / 3;
+    }
+}
