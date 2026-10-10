@@ -49,8 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Activate the deeply linked project section
             const targetId = link.getAttribute('data-target');
             const targetSection = document.getElementById(targetId);
-            if (targetSection) targetSection.classList.add('active');
-            
+            if (targetSection) {
+                targetSection.classList.add('active');
+                // Autoplay doesn't start on videos that were display:none at load
+                targetSection.querySelectorAll('video[autoplay]').forEach(v => v.play().catch(() => {}));
+            }
+
             // Hide the hero video since this is not the root portfolio page
             body.className = `${targetId}-active`;
             

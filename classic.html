@@ -48,7 +48,7 @@
                         </div>
                         <div class="project-info">
                             <h3>Avatar Robotics <span style="font-size: 0.85rem; font-weight: 400; color: #666; white-space: nowrap;">(June 2026 - Present)</span></h3>
-                            <p>building robots for warehouses :)</p>
+                            <p>Fleet tooling, deployment &amp; hardware for warehouse picking robots</p>
                         </div>
                     </a>
                 </div>
@@ -224,43 +224,103 @@
                 <a href="#" class="project-link" data-target="portfolio"
                     style="display: inline-block; margin-bottom: 30px; text-decoration: none; color: #000; font-weight: 500; border: 1px solid #000; padding: 8px 16px; border-radius: 4px; font-size: 0.9rem;">&larr;
                     Back to Projects</a>
-                <h2 style="font-size: 1.8rem; margin-bottom: 5px;">Warehouse Robotics at Avatar Robotics</h2>
+                <h2 style="font-size: 1.8rem; margin-bottom: 5px;">Avatar Robotics</h2>
                 <span
-                    style="color: var(--nav-color); font-size: 0.95rem; display: block; margin-bottom: 30px;">Robotics &amp; Computer Vision</span>
+                    style="color: var(--nav-color); font-size: 0.95rem; display: block; margin-bottom: 25px;">Robotics Engineer &middot; Jun 2026 &ndash; Present</span>
 
-                <img loading="lazy" src="warehouse-robots.jpg" alt="Warehouse Robotics Project"
-                    style="width: 100%; height: 400px; object-fit: cover; object-position: center 30%; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <p class="ar-summary">Built internal fleet tooling and supported on-site deployment of warehouse picking robots, working across web software, on-robot debugging, fixture design, and floor operations.</p>
 
-                <h3 style="margin-top: 30px; font-weight: 500;">Overview</h3>
-                <p style="margin-bottom: 20px;">building robots for warehouses :)</p>
+                <div class="ar-tags">
+                    <span>Full-stack internal tools</span>
+                    <span>Data visualization</span>
+                    <span>Slack alerting</span>
+                    <span>Linux / SSH</span>
+                    <span>Camera pipelines</span>
+                    <span>Navigation UI</span>
+                    <span>3D printing (PLA, TPU)</span>
+                    <span>CAD &amp; fixturing</span>
+                    <span>Failure analysis</span>
+                    <span>Field operations</span>
+                </div>
 
-                <h3 style="margin-top: 30px; font-weight: 500;">Fleet Uptime Tooling</h3>
-                <p style="margin-bottom: 20px;">An internal web tool for tracking robot runs, logging operational downtime, and reporting uptime across the fleet. The walkthrough below starts a downtime incident, logs it against a robot, and reviews the resulting powered- and operational-uptime breakdowns.</p>
+                <img class="ar-media" src="ar-hero.jpg" alt="Robot arm picking packets from sorting bins">
 
-                <video controls muted playsinline preload="metadata" poster="avatar-robotics-demo-poster.jpg"
-                    style="width: 100%; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); background: #1a1a1a;">
-                    <source src="avatar-robotics-demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p style="margin-bottom: 30px; font-size: 0.85rem; color: var(--nav-color);">Customer names, run identifiers, and robot names are redacted.</p>
+                <h3 class="ar-section-title">Fleet Software</h3>
+                <div class="ar-grid">
+                    <div class="ar-card" style="grid-column: 1 / -1;">
+                        <video controls muted playsinline preload="metadata" poster="avatar-robotics-demo-poster.jpg" style="height: auto; background: #1a1a1a;">
+                            <source src="avatar-robotics-demo.mp4" type="video/mp4">
+                        </video>
+                        <h4>Robot uptime tracking</h4>
+                        <p>Bug fixes for arm crashes and network drops had no way of showing whether they improved uptime. I built downtime logging and powered vs. operational uptime reporting, now live on every production run.</p>
+                        <span class="ar-skill">Full-stack &middot; Data modeling &middot; Metrics design</span>
+                    </div>
+                    <div class="ar-card">
+                        <img loading="lazy" src="ar-battery-alerts.png" alt="Slack low-battery alerts for robots">
+                        <h4>Low-battery alerts</h4>
+                        <p>Replaced manual dashboard checks with automatic Slack alerts whenever a robot drops below 20%, so the team gets notified asynchronously.</p>
+                        <span class="ar-skill">Slack integration &middot; Event-driven alerting</span>
+                    </div>
+                    <div class="ar-card">
+                        <img loading="lazy" src="ar-battery-graph.png" alt="Battery percentage time-series graph with CSV export" class="ar-contain" style="background: #121214;">
+                        <h4>Battery history &amp; CSV export</h4>
+                        <p>Per-robot battery time series (6h to 30d) with one-click CSV export, live in the fleet dashboard's device logs.</p>
+                        <span class="ar-skill">Time-series visualization &middot; Data export</span>
+                    </div>
+                    <div class="ar-card">
+                        <img loading="lazy" src="ar-dispatch.png" alt="Dispatch timing summary page">
+                        <h4>Dispatch timing analytics</h4>
+                        <p>Exportable summaries per session, order, and stage (driving, posing, picking) to measure where picking time actually goes.</p>
+                        <span class="ar-skill">Analytics &middot; Reporting &middot; Spreadsheet export</span>
+                    </div>
+                    <div class="ar-card">
+                        <img loading="lazy" src="ar-navmap.png" alt="Robot footprint and numbered waypoints on navigation map" class="ar-contain" style="background: #fff;">
+                        <h4>Navigation map: robot footprint</h4>
+                        <p>Drew the robot to scale with its heading and waypoint distances so operators can judge size and position. Also stopped the map from auto-expanding over the controls.</p>
+                        <span class="ar-skill">Front-end &middot; Robotics UX</span>
+                    </div>
+                    <div class="ar-card ar-wide">
+                        <img loading="lazy" src="ar-cameras.jpg" alt="Robot multi-camera live view">
+                        <h4>Fisheye camera recovery</h4>
+                        <p>SSH'd into the robot and probed its unlabeled camera devices (with AI assistance) to find the right fisheye, then routed it through a filter pipeline to clean up the feed.</p>
+                        <span class="ar-skill">Linux / SSH &middot; Camera pipelines &middot; Debugging</span>
+                    </div>
+                </div>
 
-                <h3 style="margin-top: 30px; font-weight: 500;">The Challenge</h3>
-                <p style="margin-bottom: 20px;">Modern fulfillment centers require rapid, automated sorting of diverse, high-volume products. Manual sorting is labor-intensive and prone to fatigue. Designing robotic systems to pick, sort, and place dynamic and flexible items (like soft packets and mixed boxes) requires highly coordinated hardware design, robust computer vision pipelines, and precise movement path planning.</p>
+                <h3 class="ar-section-title">Deployment &amp; Hardware</h3>
+                <div class="ar-grid">
+                    <div class="ar-card">
+                        <img loading="lazy" src="ar-funnel.jpg" alt="Kitting orientation funnel prototype">
+                        <h4>Kitting funnel &amp; printed parts</h4>
+                        <p>Built a funnel to orient packets during kitting, and iterated 3D-printed wedges by tuning wall count, infill, and material (PLA vs. TPU 95A).</p>
+                        <span class="ar-skill">Rapid prototyping &middot; 3D printing</span>
+                    </div>
+                    <div class="ar-card">
+                        <img loading="lazy" src="ar-fixture.jpg" alt="Cardboard fixture holding kitting boxes">
+                        <h4>Fixtures for kitting &amp; sorting</h4>
+                        <p>Supported CAD for box-enlarging fixtures, and built cardboard fixtures that stopped boxes from falling during sorting.</p>
+                        <span class="ar-skill">CAD &middot; Fixture design</span>
+                    </div>
+                    <div class="ar-card">
+                        <div class="ar-pair">
+                            <img loading="lazy" src="ar-failure.jpg" alt="Kitting failure case: packets not settling flat">
+                            <img loading="lazy" src="ar-kit.jpg" alt="Correctly kitted boxes">
+                        </div>
+                        <h4>On-site trials &amp; failure analysis</h4>
+                        <p>Led on-site kitting trials and logged boxes per hour. Tallied failure cases from trial video and coached fixes for box damage and packets not settling flat.</p>
+                        <span class="ar-skill">Test design &middot; Failure analysis</span>
+                    </div>
+                    <div class="ar-card">
+                        <video autoplay muted loop playsinline preload="metadata" poster="ar-picking-poster.jpg">
+                            <source src="ar-picking.mp4" type="video/mp4">
+                        </video>
+                        <h4>Field operations &amp; maintenance</h4>
+                        <p>Ran weekend sorting shifts (1&ndash;10 pm) for about 3 weeks. Opened up a robot's chassis to replace its wrist camera, added remote power-cycling switches, and took down site networking when a deployment ended.</p>
+                        <span class="ar-skill">Operations &middot; Hardware maintenance</span>
+                    </div>
+                </div>
 
-                <h3 style="margin-top: 30px; font-weight: 500;">System Design &amp; Implementation</h3>
-                <ul style="margin-left: 20px; line-height: 1.6; color: var(--nav-color); margin-bottom: 15px;">
-                    <li style="margin-bottom: 10px;"><strong>Robotic Manipulator:</strong> Integrated multi-axis white industrial robotic arms with customized end-effectors tailored for high-speed pick-and-place cycles.</li>
-                    <li style="margin-bottom: 10px;"><strong>Pneumatic Control:</strong> Designed routing for blue pneumatic hoses and cabling to manage vacuum-based and mechanical sorting actuators reliably.</li>
-                    <li style="margin-bottom: 10px;"><strong>Computer Vision Pipeline:</strong> Implemented real-time object classification and segmentation algorithms to detect and locate packets (such as blue, yellow, and pink packets in sorting trays) under varied lighting conditions.</li>
-                    <li style="margin-bottom: 10px;"><strong>Autonomous Sorting &amp; Tray Mapping:</strong> Developed control logic to route sorted packets to designated cardboard boxes automatically based on product type.</li>
-                </ul>
-
-                <h3 style="margin-top: 30px; font-weight: 500;">Refinement &amp; Results</h3>
-                <ul style="margin-left: 20px; line-height: 1.6; color: var(--nav-color);">
-                    <li style="margin-bottom: 10px;">High-speed sorting throughput with reliable grasping and minimal drop rates.</li>
-                    <li style="margin-bottom: 10px;">Robust multi-class object detection handling overlapping and crumpled packaging.</li>
-                    <li style="margin-bottom: 10px;">Adaptive trajectory planning minimizing mechanical wear and collision risks.</li>
-                </ul>
+                <p class="ar-note">Customer, robot, and run identifiers, plus performance figures, are redacted.</p>
 
                 <a href="#" class="project-link" data-target="portfolio"
                     style="display: inline-block; margin-top: 40px; text-decoration: none; color: #000; font-weight: 500; border: 1px solid #000; padding: 10px 20px; border-radius: 4px;">&larr;

@@ -402,3 +402,108 @@ body[class*="project-"] .site-footer {
     background-color: #000 !important;
     color: #fff !important;
 }
+
+/* Avatar Robotics project page */
+.ar-summary {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.ar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.ar-tags span {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    color: var(--nav-color);
+}
+
+.ar-media {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    background: #1a1a1a;
+    display: block;
+}
+
+.ar-section-title {
+    font-weight: 500;
+    margin: 50px 0 20px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.ar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 28px;
+}
+
+.ar-card img,
+.ar-card video {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    background: #f4f4f4;
+    display: block;
+}
+
+.ar-card img.ar-contain {
+    object-fit: contain;
+}
+
+.ar-card h4 {
+    font-weight: 500;
+    font-size: 1.02rem;
+    margin: 12px 0 6px;
+}
+
+.ar-card p {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--nav-color);
+    margin-bottom: 8px;
+}
+
+.ar-card .ar-skill {
+    font-size: 0.78rem;
+    color: #888;
+    letter-spacing: 0.02em;
+}
+
+.ar-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.ar-note {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 30px;
+}
+
+@media (max-width: 700px) {
+    .ar-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ar-card.ar-wide {
+    grid-column: 1 / -1;
+}
+
+.ar-card.ar-wide img {
+    height: 300px;
+    object-position: center 20%;
+}
