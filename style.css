@@ -525,9 +525,9 @@ body[class*="project-"] .site-footer {
     opacity: 0.8;
 }
 
-.ar-card video.ar-tall {
+.ar-card video.ar-clip {
     height: auto;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     object-position: center;
 }
@@ -536,8 +536,3 @@ body[class*="project-"] .site-footer {
     align-items: start;
 }
 
-@media (max-width: 700px) {
-    .ar-card video.ar-tall {
-        max-height: 70vh;
-    }
-}
