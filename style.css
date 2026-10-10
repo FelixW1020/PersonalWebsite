@@ -524,3 +524,20 @@ body[class*="project-"] .site-footer {
 .ar-cta:hover {
     opacity: 0.8;
 }
+
+.ar-card video.ar-tall {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ar-grid {
+    align-items: start;
+}
+
+@media (max-width: 700px) {
+    .ar-card video.ar-tall {
+        max-height: 70vh;
+    }
+}
