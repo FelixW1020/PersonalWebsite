@@ -507,3 +507,20 @@ body[class*="project-"] .site-footer {
     height: 300px;
     object-position: center 20%;
 }
+
+.ar-cta {
+    display: inline-block;
+    margin-bottom: 30px;
+    padding: 12px 22px;
+    background: #000;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.ar-cta:hover {
+    opacity: 0.8;
+}
