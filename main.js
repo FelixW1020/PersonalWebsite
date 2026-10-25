@@ -102,4 +102,101 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { once: true });
     }
+
+    // Chart tooltips on the bioimpedance page: the value leads, the label follows
+    const charts = document.querySelectorAll('svg.bz-chart');
+    if (charts.length) {
+        const tip = document.createElement('div');
+        tip.className = 'bz-tip';
+        const tipValue = document.createElement('strong');
+        const tipLabel = document.createElement('span');
+        tip.append(tipValue, tipLabel);
+        document.body.appendChild(tip);
+
+        const showTip = (x, y, value, label) => {
+            tipValue.textContent = value;
+            tipLabel.textContent = label;
+            tip.style.left = `${Math.min(x + 14, window.innerWidth - tip.offsetWidth - 8)}px`;
+            tip.style.top = `${y + 14}px`;
+            tip.classList.add('on');
+        };
+        const hideTip = () => tip.classList.remove('on');
+        const toSvg = (svg, e) => {
+            const pt = svg.createSVGPoint();
+            pt.x = e.clientX;
+            pt.y = e.clientY;
+            return pt.matrixTransform(svg.getScreenCTM().inverse());
+        };
+
+        charts.forEach(svg => {
+            const mode = svg.dataset.hover;
+
+            if (mode === 'nearest') {
+                // Scatter: snap to the closest dot within ~24 px of the pointer
+                const dots = [...svg.querySelectorAll('circle[data-v]')];
+                let hot = null;
+                svg.addEventListener('pointermove', e => {
+                    const p = toSvg(svg, e);
+                    const reach = 24 / svg.getScreenCTM().a;
+                    let best = null, bestD = reach * reach;
+                    dots.forEach(dot => {
+                        const dx = dot.cx.baseVal.value - p.x, dy = dot.cy.baseVal.value - p.y;
+                        if (dx * dx + dy * dy < bestD) { best = dot; bestD = dx * dx + dy * dy; }
+                    });
+                    if (hot && hot !== best) hot.classList.remove('hot');
+                    hot = best;
+                    if (!best) { hideTip(); return; }
+                    best.classList.add('hot');
+                    showTip(e.clientX, e.clientY, best.dataset.v, best.dataset.l);
+                });
+                svg.addEventListener('pointerleave', () => {
+                    if (hot) hot.classList.remove('hot');
+                    hideTip();
+                });
+            } else if (mode === 'x') {
+                // Line charts: a crosshair snaps to the nearest sample along x
+                const lines = svg.querySelectorAll('.bz-cross');
+                const marks = svg.querySelectorAll('.bz-dot');
+                svg.querySelectorAll('rect.bz-hit').forEach((hit, i) => {
+                    const pts = JSON.parse(hit.dataset.pts);
+                    const line = lines[i], mark = marks[i];
+                    hit.addEventListener('pointermove', e => {
+                        const x = toSvg(svg, e).x;
+                        let lo = 0, hi = pts.length - 1;
+                        while (hi - lo > 1) {
+                            const mid = (lo + hi) >> 1;
+                            if (pts[mid][0] < x) lo = mid; else hi = mid;
+                        }
+                        const pt = Math.abs(pts[lo][0] - x) < Math.abs(pts[hi][0] - x) ? pts[lo] : pts[hi];
+                        line.setAttribute('x1', pt[0]);
+                        line.setAttribute('x2', pt[0]);
+                        line.setAttribute('visibility', 'visible');
+                        mark.setAttribute('cx', pt[0]);
+                        mark.setAttribute('cy', pt[1]);
+                        mark.setAttribute('visibility', 'visible');
+                        showTip(e.clientX, e.clientY, hit.dataset.v.replace('{v}', pt[2].toFixed(2)),
+                            hit.dataset.l.replace('{x}', Math.round(pt[3])));
+                    });
+                    hit.addEventListener('pointerleave', () => {
+                        line.setAttribute('visibility', 'hidden');
+                        mark.setAttribute('visibility', 'hidden');
+                        hideTip();
+                    });
+                });
+            } else {
+                // Bars: each mark is its own hit target, by pointer or keyboard
+                svg.querySelectorAll('[data-v]').forEach(mark => {
+                    const show = e => {
+                        const r = mark.getBoundingClientRect();
+                        const x = e.clientX ?? r.left + r.width / 2, y = e.clientY ?? r.top;
+                        showTip(x, y, mark.dataset.v, mark.dataset.l);
+                    };
+                    mark.addEventListener('pointermove', show);
+                    mark.addEventListener('focus', show);
+                    mark.addEventListener('pointerleave', hideTip);
+                    mark.addEventListener('blur', hideTip);
+                });
+            }
+        });
+    }
 });

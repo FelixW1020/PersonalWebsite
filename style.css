@@ -578,3 +578,163 @@ body[class*="project-"] .site-footer {
     background: #f6f6f4;
     margin-bottom: 25px;
 }
+
+/* Bioimpedance project: inline charts and diagrams */
+.bz-fig {
+    margin: 0;
+    padding: 12px;
+    background: #fcfcfb;
+    border: 1px solid #eee;
+    border-radius: 6px;
+}
+
+.bz-fig svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.bz-fig figcaption,
+.bz-caption {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #888;
+    margin-top: 10px;
+}
+
+.bz-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.bz-split h4 {
+    margin-top: 0;
+}
+
+.bz-formula {
+    margin: 4px 0 12px;
+    padding: 4px 14px;
+    background: #f6f6f4;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+.bz-formula math {
+    font-family: 'STIX Two Math', 'Cambria Math', 'Latin Modern Math', math;
+    font-size: 1.15rem;
+    color: var(--text-color);
+}
+
+.bz-steps {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--nav-color);
+    padding-left: 1.3em;
+    margin: 10px 0 12px;
+}
+
+.bz-steps li {
+    margin-bottom: 6px;
+}
+
+.bz-steps b {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.bz-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+    margin: 4px 0 12px;
+}
+
+.bz-table th,
+.bz-table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid #eee;
+    text-align: right;
+}
+
+.bz-table th {
+    font-weight: 500;
+}
+
+.bz-table th:first-child,
+.bz-table td:first-child {
+    text-align: left;
+    color: var(--nav-color);
+}
+
+.ar-card img.bz-natural {
+    height: auto;
+}
+
+.bz-chart rect[data-v]:hover,
+.bz-chart rect[data-v]:focus {
+    opacity: 0.8;
+    outline: none;
+}
+
+.bz-chart circle.hot {
+    stroke: #222;
+    stroke-width: 2;
+    fill-opacity: 1;
+}
+
+.bz-tip {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    background: #222;
+    color: #fff;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+
+.bz-tip.on {
+    opacity: 1;
+}
+
+.bz-tip strong {
+    display: block;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.bz-tip span {
+    color: #ccc;
+}
+
+@media (max-width: 700px) {
+    .ar-grid > .ar-card {
+        min-width: 0;
+    }
+
+    .bz-split {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .bz-formula math {
+        font-size: 0.85rem;
+    }
+
+    .bz-scroll {
+        overflow-x: auto;
+    }
+
+    .bz-scroll svg {
+        min-width: 640px;
+    }
+
+    .bz-scroll .bz-table {
+        min-width: 560px;
+    }
+}
