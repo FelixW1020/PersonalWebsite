@@ -669,6 +669,30 @@ body[class*="project-"] .site-footer {
     color: var(--nav-color);
 }
 
+.bz-table.bz-heat th,
+.bz-table.bz-heat td {
+    padding: 6px 6px;
+    text-align: center;
+}
+
+.bz-table.bz-heat .bz-left {
+    text-align: left;
+}
+
+.bz-heat td.bz-miss {
+    color: #d03b3b;
+    font-weight: 600;
+}
+
+.bz-heat td.bz-na {
+    color: #b5b3ab;
+}
+
+.bz-heat tr.bz-pick td {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
 .ar-card img.bz-natural {
     height: auto;
 }
@@ -736,5 +760,9 @@ body[class*="project-"] .site-footer {
 
     .bz-scroll .bz-table {
         min-width: 560px;
+    }
+
+    .bz-scroll .bz-table.bz-heat {
+        min-width: 720px;
     }
 }
